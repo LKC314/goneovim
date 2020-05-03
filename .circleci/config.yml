@@ -6,7 +6,7 @@ jobs:
   build:
     docker:
       # specify the version
-      - image: circleci/golang:1.9
+      - image: therecipe/qt:windows_32_static
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -22,9 +22,4 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with `run: `
-      - run: sudo apt-get update
-      - run: sudo apt-get -y install build-essential libglu1-mesa-dev libpulse-dev libglib2.0-dev
-      - run: sudo apt-get --no-install-recommends install libqt*5-dev qt*5-dev qml-module-qtquick-* qt*5-doc-html
-      - run: go get -v -tags=no_env github.com/therecipe/qt/cmd/...
-      - run: docker pull therecipe/qt:windows_32_static
-      - run: qtdeploy -docker build windows_32_static
+      - run: qtdeploy build desktop
