@@ -20,6 +20,7 @@ jobs:
     working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     environment:
       QT_API: 5.8.0
+      QT_DIR: /
       QT_MXE: true
       QT_MXE_ARCH: 386
       QT_MXE_STATIC: true
